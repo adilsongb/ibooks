@@ -11,22 +11,11 @@ function Header() {
         </div>
 
         <form>
-          <input type="text" name="" id="" />
+          <input type="text" name="" id="" placeholder="Busque livros pelo título, autor, ou idioma" />
           <button type="submit">
             Buscar
           </button>
         </form>
-      </section>
-
-      <section>
-        <form>
-          <span>Filtrar ano da publicação</span>
-          <input type="date" name="" id="" />
-          <span>até</span>
-          <input type="date" name="" id="" />
-        </form>
-
-        <span>0 resultados encontrados</span>
       </section>
     </header>
   );
