@@ -2,8 +2,23 @@ export type propsProvider = {
   children: JSX.Element;
 };
 
+type Book = {
+  author: string;
+  country: string;
+  imageLink: string;
+  language: string;
+  link:string
+  pages: number;
+  title: string;
+  year: number;
+}
+
 export type AppContextType = {
-  books: string;
+  count: number;
+  books: Book[];
 };
 
-export const DEFAULT_VALUE = { book: '' };
+export const DEFAULT_VALUE = {
+  count: 0,
+  books: [],
+};

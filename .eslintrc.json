@@ -27,10 +27,14 @@
           }
         }
     },
+    "globals": {
+      "React": true,
+      "JSX": true
+    },
     "rules": {
         "no-console": "off",
         "no-alert": "off",
-        "no-undef": "off",
+        "no-undef": "error",
         "prefer-arrow-callback": "error",
         "import/extensions": [
             "error",
