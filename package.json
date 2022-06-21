@@ -22,7 +22,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.{js,jsx,ts,tsx,json}",
-    "lint:style": "stylelint src/**/*.css"
+    "lint:style": "stylelint src/**/*.{css,sass,scss}"
   },
   "eslintConfig": {
     "extends": [
@@ -43,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "@types/node-sass": "^4.11.2",
     "@typescript-eslint/eslint-plugin": "^5.29.0",
     "@typescript-eslint/parser": "^5.29.0",
     "eslint": "^8.18.0",
@@ -51,8 +52,11 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "node-sass": "^7.0.1",
+    "postcss-scss": "^4.0.4",
     "stylelint": "^14.9.1",
     "stylelint-config-standard": "^26.0.0",
-    "stylelint-order": "^5.0.0"
+    "stylelint-order": "^5.0.0",
+    "stylelint-scss": "^4.2.0"
   }
 }

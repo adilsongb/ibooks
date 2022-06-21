@@ -1,0 +1,16 @@
+@import './logo.scss';
+
+@import './search.scss';
+
+header {
+  background-color: rgb(64, 198, 228);
+  padding: 20px;
+
+  section {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1280px;
+  }
+}

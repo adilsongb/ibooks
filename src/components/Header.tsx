@@ -1,10 +1,14 @@
 import React from 'react';
+import BookIcon from '../images/icons/book.svg';
 
 function Header() {
   return (
     <header className="App-header">
       <section>
-        <h1>iBook</h1>
+        <div className="logo">
+          <img src={BookIcon} alt="Icon Book" />
+          <h1>iBook</h1>
+        </div>
 
         <form>
           <input type="text" name="" id="" />
