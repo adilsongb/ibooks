@@ -30,6 +30,7 @@
     "rules": {
         "no-console": "off",
         "no-alert": "off",
+        "no-undef": "off",
         "prefer-arrow-callback": "error",
         "import/extensions": [
             "error",
