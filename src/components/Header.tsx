@@ -7,7 +7,7 @@ function Header() {
       <section>
         <div className="logo">
           <img src={BookIcon} alt="Icon Book" />
-          <h1>iBook</h1>
+          <h1>iBooks</h1>
         </div>
 
         <form>
