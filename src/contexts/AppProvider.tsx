@@ -1,5 +1,5 @@
 import { createContext, useEffect, useMemo, useState } from 'react';
-import { getInitBooks, getBooksForPage, getSearchBooks } from '../services/apiBooks';
+import { getBooksForPage, getBooks } from '../services/apiBooks';
 import { propsProvider, AppContextType, DEFAULT_VALUE } from './types';
 
 export const AppContext = createContext<AppContextType>(DEFAULT_VALUE);
@@ -9,9 +9,23 @@ export function AppProvider({ children }: propsProvider) {
   const [countTotalItems, setCount] = useState(0);
   const [books, setBooks] = useState([]);
   const [search, setSearch] = useState('');
+  const [filter, setFilter] = useState('');
 
-  const getAllBooks = async () => {
-    const { data, itemsQuantity, pages } = await getInitBooks();
+  const getApiBooks = async (query = search, fill = filter) => {
+    if (query) setSearch(query);
+    if (fill) setFilter(fill);
+    const { data, itemsQuantity, pages } = await getBooks(query, fill);
+
+    setCount(itemsQuantity);
+    setBooks(data);
+    setPagesItems(pages);
+  };
+
+  const getByFilter = async (fill = filter) => {
+    if (fill) setFilter(fill);
+    const { data, itemsQuantity, pages } = await getBooks(search, fill);
+
+    console.log(itemsQuantity);
 
     setCount(itemsQuantity);
     setBooks(data);
@@ -19,26 +33,17 @@ export function AppProvider({ children }: propsProvider) {
   };
 
   const changePage = async (page: number) => {
-    const data = await getBooksForPage(search, page);
+    const data = await getBooksForPage(search, filter, page);
 
     setBooks(data);
-  };
-
-  const SearchBooks = async (query: string) => {
-    setSearch(query);
-    const { data, itemsQuantity, pages } = await getSearchBooks(query);
-
-    setCount(itemsQuantity);
-    setBooks(data);
-    setPagesItems(pages);
   };
 
   useEffect(() => {
-    getAllBooks();
+    getApiBooks();
   }, []);
 
   const contextValues = useMemo(() => (
-    { books, countTotalItems, pagesItems, changePage, SearchBooks }
+    { books, countTotalItems, pagesItems, changePage, getApiBooks, getByFilter }
   ), [books, countTotalItems, pagesItems]);
 
   return (

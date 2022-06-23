@@ -18,7 +18,9 @@ export type AppContextType = {
   books: Book[];
   pagesItems: any[] | number[];
   changePage: Function;
-  SearchBooks: Function;
+  getApiBooks: Function;
+  getByFilter: Function;
+  /* SearchBooks: Function; */
 };
 
 export const DEFAULT_VALUE = {
@@ -26,5 +28,7 @@ export const DEFAULT_VALUE = {
   books: [],
   pagesItems: [],
   changePage: () => {},
-  SearchBooks: () => {},
+  getApiBooks: () => {},
+  getByFilter: () => {},
+  /* SearchBooks: () => {}, */
 };

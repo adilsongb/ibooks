@@ -3,8 +3,8 @@ import axios from 'axios';
 const api = axios.create({ baseURL: 'http://localhost:4000' });
 
 /* Recupera a quantidade de livros da requisição */
-const getQuantity = async (query = '') => {
-  const { data } = await api.get(`/books?${query}`);
+const getQuantity = async (query = '', filter = '') => {
+  const { data } = await api.get(`/books?${query}${filter}`);
 
   const pages = [];
 
@@ -22,15 +22,17 @@ export const getInitBooks = async () => {
   return { data, itemsQuantity, pages };
 };
 
-export const getBooksForPage = async (query = '', page = 1, limit = 10) => {
-  const { data } = await api.get(`/books?${query}&_page=${page}&_limit=${limit}`);
+export const getBooksForPage = async (query = '', filter = '', page = 1, limit = 10) => {
+  console.log(`/books?${query}${filter}_page=${page}&_limit=${limit}`);
+  const { data } = await api.get(`/books?${query}${filter}_page=${page}&_limit=${limit}`);
 
   return data;
 };
 
-export const getSearchBooks = async (query = '', page = 1, limit = 10) => {
-  const { data } = await api.get(`/books?${query}&_page=${page}&_limit=${limit}`);
-  const { itemsQuantity, pages } = await getQuantity(query);
+export const getBooks = async (query = '', filter = '', page = 1, limit = 10) => {
+  console.log(`/books?${query}${filter}_page=${page}&_limit=${limit}`);
+  const { data } = await api.get(`/books?${query}${filter}_page=${page}&_limit=${limit}`);
+  const { itemsQuantity, pages } = await getQuantity(query, filter);
 
   return { data, itemsQuantity, pages };
 };

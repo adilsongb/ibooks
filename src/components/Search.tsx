@@ -3,11 +3,11 @@ import { AppContext } from '../contexts/AppProvider';
 
 function Search() {
   const [query, setQuery] = useState('');
-  const { SearchBooks } = useContext(AppContext);
+  const { getApiBooks } = useContext(AppContext);
 
   const submitSearch = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    SearchBooks(`q=${query}`);
+    getApiBooks(`q=${query}&`);
   };
 
   return (
