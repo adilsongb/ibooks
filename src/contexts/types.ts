@@ -20,15 +20,17 @@ export type AppContextType = {
   changePage: Function;
   getApiBooks: Function;
   getByFilter: Function;
-  /* SearchBooks: Function; */
+  viewBookDetail: Function;
+  viewDetail: boolean;
 };
 
 export const DEFAULT_VALUE = {
   countTotalItems: 0,
   books: [],
   pagesItems: [],
+  viewDetail: false,
   changePage: () => {},
   getApiBooks: () => {},
   getByFilter: () => {},
-  /* SearchBooks: () => {}, */
+  viewBookDetail: () => {},
 };

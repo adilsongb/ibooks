@@ -10,6 +10,8 @@ export function AppProvider({ children }: propsProvider) {
   const [books, setBooks] = useState([]);
   const [search, setSearch] = useState('');
   const [filter, setFilter] = useState('');
+  const [book, setBook] = useState();
+  const [viewDetail, setViewDetail] = useState(false);
 
   const getApiBooks = async (query = search, fill = filter) => {
     if (query) setSearch(query);
@@ -38,12 +40,27 @@ export function AppProvider({ children }: propsProvider) {
     setBooks(data);
   };
 
+  const viewBookDetail = (indexBook: number) => {
+    setBook(books[indexBook]);
+    setViewDetail(true);
+  };
+
   useEffect(() => {
     getApiBooks();
   }, []);
 
   const contextValues = useMemo(() => (
-    { books, countTotalItems, pagesItems, changePage, getApiBooks, getByFilter }
+    {
+      books,
+      countTotalItems,
+      pagesItems,
+      changePage,
+      getApiBooks,
+      getByFilter,
+      viewBookDetail,
+      viewDetail,
+      book,
+    }
   ), [books, countTotalItems, pagesItems]);
 
   return (
