@@ -14,7 +14,9 @@ function Filter() {
       </form>
 
       <span>
-        <span className="CountItems">{countTotalItems}</span>
+        <span className="CountItems">
+          {countTotalItems}
+        </span>
         resultados encontrados
       </span>
     </section>

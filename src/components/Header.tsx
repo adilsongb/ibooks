@@ -1,5 +1,5 @@
-import React from 'react';
 import BookIcon from '../images/icons/book.svg';
+import Search from './Search';
 
 function Header() {
   return (
@@ -10,12 +10,7 @@ function Header() {
           <h1>iBooks</h1>
         </div>
 
-        <form>
-          <input type="text" name="" id="" placeholder="Busque livros pelo título, autor, ou idioma" />
-          <button type="submit">
-            Buscar
-          </button>
-        </form>
+        <Search />
       </section>
     </header>
   );
