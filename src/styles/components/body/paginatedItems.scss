@@ -1,0 +1,35 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+
+  li {
+    align-items: center;
+    border: 2px solid $seconday-color;
+    border-radius: 5px;
+    color: $seconday-color;
+    cursor: pointer;
+    display: flex;
+    height: 30px;
+    justify-content: center;
+    margin: 0 10px;
+    width: 30px;
+
+    a {
+      align-items: center;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      width: 100%;
+    }
+  }
+
+  .disable {
+    cursor: default;
+  }
+
+  .activePage {
+    background-color: $seconday-color;
+    color: white;
+  }
+}

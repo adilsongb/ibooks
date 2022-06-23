@@ -1,20 +1,26 @@
-import React, { createContext, useEffect, useMemo, useState } from 'react';
-import getBooks from '../services/apiBooks';
+import { createContext, useEffect, useMemo, useState } from 'react';
+import { getInitBooks, getBooksForPage } from '../services/apiBooks';
 import { propsProvider, AppContextType, DEFAULT_VALUE } from './types';
 
 export const AppContext = createContext<AppContextType>(DEFAULT_VALUE);
 
 export function AppProvider({ children }: propsProvider) {
+  const [pagesItems, setPagesItems] = useState<[] | number[]>([]);
   const [countTotalItems, setCount] = useState(0);
   const [books, setBooks] = useState([]);
-  const [pagesItems, setPagesItems] = useState<[] | number[]>([]);
 
   const getAllBooks = async () => {
-    const { data, itemsQuantity, pages } = await getBooks();
+    const { data, itemsQuantity, pages } = await getInitBooks();
 
     setCount(itemsQuantity);
     setBooks(data);
     setPagesItems(pages);
+  };
+
+  const changePage = async (page: number) => {
+    const data = await getBooksForPage(page);
+
+    setBooks(data);
   };
 
   useEffect(() => {
@@ -22,7 +28,7 @@ export function AppProvider({ children }: propsProvider) {
   }, []);
 
   const contextValues = useMemo(() => (
-    { books, countTotalItems, pagesItems }
+    { books, countTotalItems, pagesItems, changePage }
   ), [books, countTotalItems, pagesItems]);
 
   return (

@@ -2,23 +2,28 @@ import axios from 'axios';
 
 const api = axios.create({ baseURL: 'http://localhost:4000' });
 
-const getQuantity = async () => {
-  const { data } = await api.get('/books');
-
-  return data.length;
-};
-
-const getBooks = async () => {
-  const { data } = await api.get('/books?_page=1&_limit=10');
-  const itemsQuantity = await getQuantity();
+/* Recupera a quantidade de livros da requisição */
+const getQuantity = async (query = '') => {
+  const { data } = await api.get(`/books${query}`);
 
   const pages = [];
 
-  for (let index = 1; index <= (itemsQuantity / 10); index += 1) {
+  for (let index = 1; index <= (data.length / 10); index += 1) {
     pages.push(index);
   }
+
+  return { itemsQuantity: data.length, pages };
+};
+
+export const getInitBooks = async () => {
+  const { data } = await api.get('/books?_page=1&_limit=10');
+  const { itemsQuantity, pages } = await getQuantity();
 
   return { data, itemsQuantity, pages };
 };
 
-export default getBooks;
+export const getBooksForPage = async (page = 1, limit = 10) => {
+  const { data } = await api.get(`/books?_page=${page}&_limit=${limit}`);
+
+  return data;
+};

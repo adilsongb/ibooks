@@ -1,4 +1,3 @@
-import React from 'react';
 import './styles/main.scss';
 import Header from './components/Header';
 import TableBooks from './components/TableBooks';
@@ -7,12 +6,14 @@ import PaginatedItems from './components/PaginatedItems';
 
 function App() {
   return (
-    <div className="App">
+    <main className="App">
       <Header />
-      <Filter />
-      <TableBooks />
-      <PaginatedItems />
-    </div>
+      <section className="Content">
+        <Filter />
+        <TableBooks />
+        <PaginatedItems />
+      </section>
+    </main>
   );
 }
 

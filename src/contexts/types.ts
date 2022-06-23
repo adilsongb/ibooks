@@ -17,10 +17,12 @@ export type AppContextType = {
   countTotalItems: number;
   books: Book[];
   pagesItems: any[] | number[];
+  changePage: Function;
 };
 
 export const DEFAULT_VALUE = {
   countTotalItems: 0,
   books: [],
   pagesItems: [],
+  changePage: () => {},
 };

@@ -5,7 +5,7 @@ import { AppContext } from '../contexts/AppProvider';
 function PaginatedItems() {
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
-  const { countTotalItems } = useContext(AppContext);
+  const { countTotalItems, changePage } = useContext(AppContext);
   const itemsPerPage = 10;
 
   useEffect(() => {
@@ -14,9 +14,7 @@ function PaginatedItems() {
 
   const handlePageClick = (event: { selected: number }) => {
     const newOffset = (event.selected * itemsPerPage) % countTotalItems;
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`,
-    );
+    changePage(event.selected + 1);
     setItemOffset(newOffset);
   };
 
@@ -30,6 +28,9 @@ function PaginatedItems() {
       pageCount={pageCount}
       previousLabel="<"
       renderOnZeroPageCount={undefined}
+      containerClassName="pagination"
+      disabledClassName="disable"
+      activeClassName="disable activePage"
     />
   );
 }

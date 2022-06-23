@@ -1,5 +1,13 @@
+@import 'variables';
+
 @import 'base/reset';
+
+@import 'base/containers';
 
 @import 'components/header';
 
+@import 'components/body/filter';
+
 @import 'components/body/tableBooks';
+
+@import 'components/body/paginatedItems';

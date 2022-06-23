@@ -5,7 +5,7 @@ function Filter() {
   const { countTotalItems } = useContext(AppContext);
 
   return (
-    <section>
+    <section className="Filter">
       <form>
         <span>Filtrar ano da publicação</span>
         <input type="number" name="" id="" />
@@ -14,7 +14,7 @@ function Filter() {
       </form>
 
       <span>
-        <span>{countTotalItems}</span>
+        <span className="CountItems">{countTotalItems}</span>
         resultados encontrados
       </span>
     </section>
