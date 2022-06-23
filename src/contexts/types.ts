@@ -14,11 +14,13 @@ type Book = {
 }
 
 export type AppContextType = {
-  count: number;
+  countTotalItems: number;
   books: Book[];
+  pagesItems: any[] | number[];
 };
 
 export const DEFAULT_VALUE = {
-  count: 0,
+  countTotalItems: 0,
   books: [],
+  pagesItems: [],
 };

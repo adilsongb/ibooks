@@ -5,21 +5,25 @@ import { propsProvider, AppContextType, DEFAULT_VALUE } from './types';
 export const AppContext = createContext<AppContextType>(DEFAULT_VALUE);
 
 export function AppProvider({ children }: propsProvider) {
-  const [count, setCount] = useState(0);
+  const [countTotalItems, setCount] = useState(0);
   const [books, setBooks] = useState([]);
+  const [pagesItems, setPagesItems] = useState<[] | number[]>([]);
 
   const getAllBooks = async () => {
-    const data = await getBooks();
+    const { data, itemsQuantity, pages } = await getBooks();
 
-    setCount(data.length);
+    setCount(itemsQuantity);
     setBooks(data);
+    setPagesItems(pages);
   };
 
   useEffect(() => {
     getAllBooks();
   }, []);
 
-  const contextValues = useMemo(() => ({ books, count }), [books, count]);
+  const contextValues = useMemo(() => (
+    { books, countTotalItems, pagesItems }
+  ), [books, countTotalItems, pagesItems]);
 
   return (
     <AppContext.Provider value={contextValues}>

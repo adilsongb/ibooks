@@ -3,6 +3,7 @@ import './styles/main.scss';
 import Header from './components/Header';
 import TableBooks from './components/TableBooks';
 import Filter from './components/Filter';
+import PaginatedItems from './components/PaginatedItems';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Header />
       <Filter />
       <TableBooks />
+      <PaginatedItems />
     </div>
   );
 }

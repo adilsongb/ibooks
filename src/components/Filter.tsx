@@ -2,19 +2,19 @@ import React, { useContext } from 'react';
 import { AppContext } from '../contexts/AppProvider';
 
 function Filter() {
-  const { count } = useContext(AppContext);
+  const { countTotalItems } = useContext(AppContext);
 
   return (
     <section>
       <form>
         <span>Filtrar ano da publicação</span>
-        <input type="date" name="" id="" />
+        <input type="number" name="" id="" />
         <span>até</span>
-        <input type="date" name="" id="" />
+        <input type="number" name="" id="" />
       </form>
 
       <span>
-        <span>{count}</span>
+        <span>{countTotalItems}</span>
         resultados encontrados
       </span>
     </section>
