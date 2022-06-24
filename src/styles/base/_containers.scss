@@ -22,4 +22,8 @@
   display: flex;
   justify-content: center;
   min-height: 50vh;
+
+  h1 {
+    color: $primary-color;
+  }
 }

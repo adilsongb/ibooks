@@ -9,7 +9,7 @@ import Loading from './components/Loading';
 import './styles/main.scss';
 
 function App() {
-  const { viewDetail, loading } = useContext(AppContext);
+  const { viewDetail, loading, books } = useContext(AppContext);
 
   if (loading) {
     return (
@@ -17,6 +17,18 @@ function App() {
         <Header />
         <section className="ContentLoad">
           <Loading />
+        </section>
+      </main>
+    );
+  }
+
+  /* Caso a requisição não retorne nenhum livro */
+  if (books.length === 0) {
+    return (
+      <main className="App">
+        <Header />
+        <section className="ContentLoad">
+          <h1>Nenhum resultado encontrado</h1>
         </section>
       </main>
     );
