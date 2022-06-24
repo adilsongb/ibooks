@@ -1,9 +1,51 @@
-.Filter {
+/* stylelint-disable selector-no-qualifying-type */
+
+/* stylelint-disable property-no-vendor-prefix */
+.FilterContainer {
   align-items: center;
   display: flex;
+  font-size: 18px;
   justify-content: space-between;
 
   .CountItems {
     margin-right: 3px;
+  }
+
+  input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[ type = 'number' ] {
+    -moz-appearance: textfield;
+    border: 2px solid $primary-color;
+    border-radius: 5px;
+    font-weight: 600;
+    margin: 0 5px;
+    text-align: center;
+    width: 50px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .Filter {
+    align-items: center;
+    display: flex;
+
+    img {
+      margin-right: 5px;
+    }
+
+    button {
+      background-color: $primary-color;
+      border: none;
+      border-radius: 5px;
+      color: whitesmoke;
+      display: flex;
+      font-size: 16px;
+      font-weight: 600;
+    }
   }
 }

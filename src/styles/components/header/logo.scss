@@ -1,3 +1,6 @@
+/* stylelint-disable */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&display=swap');
+
 .logo {
   align-items: center;
   color: whitesmoke;
@@ -5,6 +8,7 @@
   font-size: 30px;
 
   h1 {
+    font-family: Roboto Slab, serif;
     margin: 0;
   }
 
