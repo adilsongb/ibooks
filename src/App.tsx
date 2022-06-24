@@ -4,11 +4,23 @@ import Header from './components/Header';
 import TableBooks from './components/TableBooks';
 import Filter from './components/Filter';
 import PaginatedItems from './components/PaginatedItems';
-import './styles/main.scss';
 import BookDetail from './components/BookDetail';
+import Loading from './components/Loading';
+import './styles/main.scss';
 
 function App() {
-  const { viewDetail } = useContext(AppContext);
+  const { viewDetail, loading } = useContext(AppContext);
+
+  if (loading) {
+    return (
+      <main className="App">
+        <Header />
+        <section className="ContentLoad">
+          <Loading />
+        </section>
+      </main>
+    );
+  }
 
   return (
     <main className="App">

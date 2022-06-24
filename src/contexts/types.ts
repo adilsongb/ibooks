@@ -24,6 +24,7 @@ export type AppContextType = {
   viewBookDetail: Function;
   closeBookDetail: Function;
   viewDetail: boolean;
+  loading: boolean;
 };
 
 export const DEFAULT_VALUE = {
@@ -32,6 +33,7 @@ export const DEFAULT_VALUE = {
   book: undefined,
   pagesItems: [],
   viewDetail: false,
+  loading: true,
   changePage: () => {},
   getApiBooks: () => {},
   getByFilter: () => {},

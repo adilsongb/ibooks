@@ -3,3 +3,10 @@
   max-width: $max-width-container;
   padding-top: 40px;
 }
+
+.ContentLoad {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 50vh;
+}
