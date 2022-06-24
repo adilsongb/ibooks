@@ -5,9 +5,9 @@
 
   li {
     align-items: center;
-    border: 2px solid $seconday-color;
+    border: 2px solid $secondary-color;
     border-radius: 5px;
-    color: $seconday-color;
+    color: $secondary-color;
     cursor: pointer;
     display: flex;
     height: 30px;
@@ -29,7 +29,7 @@
   }
 
   .activePage {
-    background-color: $seconday-color;
+    background-color: $secondary-color;
     color: white;
   }
 }

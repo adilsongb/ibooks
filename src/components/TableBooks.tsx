@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { AppContext } from '../contexts/AppProvider';
 
 function TableBooks() {
-  const { books } = useContext(AppContext);
+  const { books, viewBookDetail } = useContext(AppContext);
 
   return (
     <table border={1}>
@@ -25,7 +25,10 @@ function TableBooks() {
               <td>{ book.language }</td>
               <td>{ book.year }</td>
               <td>
-                <button type="button">
+                <button
+                  type="button"
+                  onClick={() => viewBookDetail(i)}
+                >
                   Detalhes
                 </button>
               </td>

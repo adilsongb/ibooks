@@ -45,6 +45,11 @@ export function AppProvider({ children }: propsProvider) {
     setViewDetail(true);
   };
 
+  const closeBookDetail = () => {
+    setBook(undefined);
+    setViewDetail(false);
+  };
+
   useEffect(() => {
     getApiBooks();
   }, []);
@@ -60,8 +65,9 @@ export function AppProvider({ children }: propsProvider) {
       viewBookDetail,
       viewDetail,
       book,
+      closeBookDetail,
     }
-  ), [books, countTotalItems, pagesItems]);
+  ), [books, countTotalItems, pagesItems, viewDetail]);
 
   return (
     <AppContext.Provider value={contextValues}>
