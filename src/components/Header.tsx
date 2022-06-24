@@ -6,7 +6,7 @@ function Header() {
     <header className="App-header">
       <section>
         <div className="logo">
-          <img src={BookIcon} alt="Icon Book" />
+          <img src={BookIcon} alt="Book icon" data-testid="logo-icon" />
           <h1>iBooks</h1>
         </div>
 
