@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const api = axios.create({ baseURL: 'http://localhost:4000' });
+const URL = process.env.REACT_APP_URL_API || 'http://localhost:4000';
+
+const api = axios.create({ baseURL: URL });
 
 /* Recupera a quantidade de livros da requisição */
 const getQuantity = async (query = '', filter = '') => {
