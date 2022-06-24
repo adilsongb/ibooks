@@ -1,5 +1,6 @@
 import { useContext, useState, MouseEvent } from 'react';
 import { AppContext } from '../contexts/AppProvider';
+import searchIcon from '../images/icons/search.svg';
 
 function Search() {
   const [query, setQuery] = useState('');
@@ -11,14 +12,14 @@ function Search() {
   };
 
   return (
-    <form>
+    <form className="Search">
       <input
         type="text"
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Busque livros pelo título, autor, ou idioma"
       />
       <button type="submit" onClick={submitSearch}>
-        Buscar
+        <img src={searchIcon} alt="Search icon" />
       </button>
     </form>
   );
