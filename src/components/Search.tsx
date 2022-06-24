@@ -12,14 +12,19 @@ function Search() {
   };
 
   return (
-    <form className="Search">
+    <form className="Search" data-testid="search-form">
       <input
         type="text"
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Busque livros pelo título, autor, ou idioma"
+        data-testid="search-input"
       />
-      <button type="submit" onClick={submitSearch}>
-        <img src={searchIcon} alt="Search icon" />
+      <button
+        type="submit"
+        onClick={submitSearch}
+        data-testid="search-btn"
+      >
+        <img src={searchIcon} alt="Search icon" data-testid="search-icon" />
       </button>
     </form>
   );

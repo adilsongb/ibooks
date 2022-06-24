@@ -10,7 +10,6 @@ function Filter() {
 
   const submitFilter = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    console.log(`${gte}-${lte}`);
     getByFilter(`year_gte=${gte}&year_lte=${lte}&`);
   };
 
@@ -23,28 +22,28 @@ function Filter() {
           type="number"
           onChange={(e) => setGte(e.target.value)}
           placeholder="1800"
+          data-testid="input-year"
         />
         <span>até</span>
         <input
           type="number"
           onChange={(e) => setLte(e.target.value)}
           placeholder="2022"
+          data-testid="input-year"
         />
         <button
           type="submit"
           onClick={submitFilter}
           disabled={gte === '' || lte === ''}
+          data-testid="filter-submit-btn"
         >
           <img src={filterIcon} alt="Filter icon" width="20" />
           Filtrar
         </button>
       </form>
 
-      <span>
-        <span className="CountItems">
-          {countTotalItems}
-        </span>
-        resultados encontrados
+      <span data-testid="quantity-info">
+        {`${countTotalItems} resultados encontrados`}
       </span>
     </section>
   );
