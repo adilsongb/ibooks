@@ -39,6 +39,12 @@
   npm start
   ```
 
+  - Veja a aplicação rodando no navegador em:
+
+  ```
+  http://localhost:3000
+  ```
+
 ### 🧪 Testes
 
 ▶️ Para rodar os testes da aplicação use o seguinte comando:
