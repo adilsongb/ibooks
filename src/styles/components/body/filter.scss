@@ -29,23 +29,29 @@
       outline: none;
     }
   }
+}
 
-  .Filter {
-    align-items: center;
+.Filter {
+  align-items: center;
+  display: flex;
+
+  img {
+    margin-right: 5px;
+  }
+
+  button {
+    background-color: $primary-color;
+    border: none;
+    border-radius: 5px;
+    color: whitesmoke;
+    cursor: pointer;
     display: flex;
+    font-size: 16px;
+    font-weight: 600;
 
-    img {
-      margin-right: 5px;
-    }
-
-    button {
-      background-color: $primary-color;
-      border: none;
-      border-radius: 5px;
-      color: whitesmoke;
-      display: flex;
-      font-size: 16px;
-      font-weight: 600;
+    &:disabled {
+      background-color: rgb(182, 182, 182);
+      cursor: default;
     }
   }
 }

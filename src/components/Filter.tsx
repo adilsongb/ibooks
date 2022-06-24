@@ -4,8 +4,8 @@ import filterIcon from '../images/icons/filter.svg';
 import calendarIcon from '../images/icons/calendar.svg';
 
 function Filter() {
-  const [gte, setGte] = useState('0');
-  const [lte, setLte] = useState('0');
+  const [gte, setGte] = useState('');
+  const [lte, setLte] = useState('');
   const { countTotalItems, getByFilter } = useContext(AppContext);
 
   const submitFilter = (event: MouseEvent<HTMLButtonElement>) => {
@@ -30,7 +30,11 @@ function Filter() {
           onChange={(e) => setLte(e.target.value)}
           placeholder="2022"
         />
-        <button type="submit" onClick={submitFilter}>
+        <button
+          type="submit"
+          onClick={submitFilter}
+          disabled={gte === '' || lte === ''}
+        >
           <img src={filterIcon} alt="Filter icon" width="20" />
           Filtrar
         </button>
