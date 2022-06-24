@@ -1,6 +1,8 @@
 ## 📖 iBooks
 
-▶️ Aplicação de busca de livros desenvolvido com `React.js`, `Context API`, `Sass/Scss`, `TypeScript`, `ESlint` e `Stylelint`.
+▶️ Aplicação de busca de livros desenvolvido com `React.js`, `Context API`, `Sass/Scss`, e `TypeScript`.
+
+![Captura de tela_2022-06-24_19-19-30](https://user-images.githubusercontent.com/47402835/175700229-c18f48fb-937d-47b0-bdeb-0b9957d3cff5.png)
 
 ▶️ A aplicação é capaz de:
   
