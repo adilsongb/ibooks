@@ -1,0 +1,56 @@
+table {
+  border: 1px solid $primary-color;
+  border-collapse: collapse;
+  margin: 0 auto;
+  margin-top: 40px;
+  width: 100%;
+
+  th {
+    background-color: $primary-color;
+    color: whitesmoke;
+    padding: 10px 5px;
+    text-align: left;
+  }
+
+  td {
+    border: 1px solid $primary-color;
+    padding: 10px 5px;
+    text-align: left;
+  }
+
+  tr {
+
+    td:nth-child( 1 ) {
+      width: 40%;
+    }
+
+    td:nth-child( 2 ) {
+      width: 20%;
+    }
+
+    td:nth-child( 3 ) {
+      width: 20%;
+    }
+
+    td:nth-child( 4 ) {
+      width: 10%;
+    }
+
+    td:nth-child( 5 ) {
+      text-align: center;
+      width: 10%;
+    }
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    color: $secondary-color;
+    cursor: pointer;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
