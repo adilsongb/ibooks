@@ -13,6 +13,7 @@ export function AppProvider({ children }: propsProvider) {
   const [book, setBook] = useState();
   const [viewDetail, setViewDetail] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [loadTable, setLoadTable] = useState(false);
 
   const getApiBooks = async (query = search, fill = filter) => {
     setLoading(true);
@@ -31,8 +32,6 @@ export function AppProvider({ children }: propsProvider) {
     if (fill) setFilter(fill);
     const { data, itemsQuantity, pages } = await getBooks(search, fill);
 
-    console.log(itemsQuantity);
-
     setCount(itemsQuantity);
     setBooks(data);
     setPagesItems(pages);
@@ -40,9 +39,11 @@ export function AppProvider({ children }: propsProvider) {
   };
 
   const changePage = async (page: number) => {
+    setLoadTable(true);
     const data = await getBooksForPage(search, filter, page);
 
     setBooks(data);
+    setLoadTable(false);
   };
 
   const viewBookDetail = (indexBook: number) => {
@@ -72,8 +73,9 @@ export function AppProvider({ children }: propsProvider) {
       book,
       closeBookDetail,
       loading,
+      loadTable,
     }
-  ), [books, countTotalItems, pagesItems, viewDetail, loading]);
+  ), [books, countTotalItems, pagesItems, viewDetail, loading, loadTable]);
 
   return (
     <AppContext.Provider value={contextValues}>

@@ -25,6 +25,7 @@ export type AppContextType = {
   closeBookDetail: Function;
   viewDetail: boolean;
   loading: boolean;
+  loadTable: boolean;
 };
 
 export const DEFAULT_VALUE = {
@@ -34,6 +35,7 @@ export const DEFAULT_VALUE = {
   pagesItems: [],
   viewDetail: false,
   loading: true,
+  loadTable: true,
   changePage: () => {},
   getApiBooks: () => {},
   getByFilter: () => {},

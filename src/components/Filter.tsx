@@ -10,7 +10,6 @@ function Filter() {
 
   const submitFilter = (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    console.log(`${gte}-${lte}`);
     getByFilter(`year_gte=${gte}&year_lte=${lte}&`);
   };
 
